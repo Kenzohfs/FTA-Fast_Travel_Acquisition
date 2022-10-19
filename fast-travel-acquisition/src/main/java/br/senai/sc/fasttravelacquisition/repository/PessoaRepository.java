@@ -1,4 +1,4 @@
 package br.senai.sc.fasttravelacquisition.repository;
 
-public class PessoaRepository {
+public interface PessoaRepository {
 }
