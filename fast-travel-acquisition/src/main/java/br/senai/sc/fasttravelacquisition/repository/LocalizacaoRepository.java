@@ -1,4 +1,4 @@
 package br.senai.sc.fasttravelacquisition.repository;
 
-public class LocalizacaoRepository {
+public interface LocalizacaoRepository {
 }
