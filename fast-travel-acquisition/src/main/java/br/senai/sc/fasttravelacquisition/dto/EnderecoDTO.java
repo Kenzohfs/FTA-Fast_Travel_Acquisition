@@ -1,10 +1,8 @@
 package br.senai.sc.fasttravelacquisition.dto;
 
-import org.springframework.stereotype.Repository;
+import lombok.Getter;
 
-import javax.persistence.Column;
-
-
+@Getter
 public class EnderecoDTO {
     private Long id;
     private String pais;

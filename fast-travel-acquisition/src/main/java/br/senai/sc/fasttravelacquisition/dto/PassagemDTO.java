@@ -3,9 +3,9 @@ package br.senai.sc.fasttravelacquisition.dto;
 import br.senai.sc.fasttravelacquisition.model.entities.Endereco;
 import br.senai.sc.fasttravelacquisition.model.entities.Pessoa;
 import br.senai.sc.fasttravelacquisition.model.entities.Viagem;
+import lombok.Getter;
 
-import javax.persistence.Column;
-
+@Getter
 public class PassagemDTO {
     private Long id;
     private Long numAssento;

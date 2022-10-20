@@ -26,6 +26,7 @@ public class EnderecoController {
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid EnderecoDTO enderecoDTO) {
+        System.out.println(enderecoDTO.toString());
         Endereco endereco = new Endereco();
         BeanUtils.copyProperties(enderecoDTO, endereco);
         return ResponseEntity.status(HttpStatus.CREATED).body(enderecoService.save(endereco));
