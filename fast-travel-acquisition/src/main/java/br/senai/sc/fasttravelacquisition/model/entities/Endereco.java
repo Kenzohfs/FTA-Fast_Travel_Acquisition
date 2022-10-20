@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "endereco")
 @AllArgsConstructor
+@NoArgsConstructor()
 @Getter
 @Setter
 @ToString
@@ -16,7 +17,7 @@ public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false, length = 100)
     private String pais;
