@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LocalizacaoRepository extends JpaRepository<Localizacao, Integer> {
+public interface LocalizacaoRepository extends JpaRepository<Localizacao, Long> {
 
     List<Localizacao> findByViagem(Viagem viagem);
 
