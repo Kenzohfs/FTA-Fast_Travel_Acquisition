@@ -26,13 +26,14 @@ public class EnderecoController {
 
     @PostMapping
     public ResponseEntity<Object> save(@RequestBody @Valid EnderecoDTO enderecoDTO) {
+        System.out.println(enderecoDTO.toString());
         Endereco endereco = new Endereco();
         BeanUtils.copyProperties(enderecoDTO, endereco);
         return ResponseEntity.status(HttpStatus.CREATED).body(enderecoService.save(endereco));
     }
 
     @GetMapping("/{idEndereco}")
-    public ResponseEntity<Object> findById(Long id) {
+    public ResponseEntity<Object> findById(@PathVariable(value = "idEndereco") Long id) {
         if (!enderecoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o endereço!");
         }
@@ -52,7 +53,7 @@ public class EnderecoController {
     }
 
     @DeleteMapping("/{idEndereco}")
-    public ResponseEntity<Object> deleteById(Long id) {
+    public ResponseEntity<Object> deleteById(@PathVariable(value = "idEndereco") Long id) {
         if (!enderecoService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o endereço!");
         }
