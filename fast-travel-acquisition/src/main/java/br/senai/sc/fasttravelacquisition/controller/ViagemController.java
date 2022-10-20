@@ -36,7 +36,7 @@ public class ViagemController {
         return ResponseEntity.status(HttpStatus.OK).body(viagemService.findById(id));
     }
 
-    @GetMapping("/{codigo}")
+    @GetMapping("/veiculo/{codigo}")
     public ResponseEntity<Object> findByVeiculo(@PathVariable(value = "codigo") String id) {
 
         VeiculoService service = new VeiculoService();
