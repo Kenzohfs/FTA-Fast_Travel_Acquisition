@@ -30,7 +30,7 @@ public class PessoaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> findById(String cpf) {
+    public ResponseEntity<Object> findById(@PathVariable(value = "id") String cpf) {
         if (!pessoaService.existsById(cpf)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a pessoa!");
         }
@@ -44,13 +44,13 @@ public class PessoaController {
         }
 
         Pessoa pessoa = new Pessoa();
-        BeanUtils.copyProperties(pessoaDTO, pessoa, "id");
+        BeanUtils.copyProperties(pessoaDTO, pessoa, "cpf");
         pessoa.setCpf(cpf);
         return ResponseEntity.status(HttpStatus.CREATED).body(pessoaService.save(pessoa));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteById(String cpf) {
+    public ResponseEntity<Object> deleteById(@PathVariable(value = "id") String cpf) {
         if (!pessoaService.existsById(cpf)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a pessoa!");
         }

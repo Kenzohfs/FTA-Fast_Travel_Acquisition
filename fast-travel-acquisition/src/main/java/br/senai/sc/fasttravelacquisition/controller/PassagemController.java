@@ -32,7 +32,7 @@ public class PassagemController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> findById(Long id) {
+    public ResponseEntity<Object> findById(@PathVariable(value = "id") Long id) {
         if (!passagemService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a passagem!");
         }
@@ -52,7 +52,7 @@ public class PassagemController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteById(Long id) {
+    public ResponseEntity<Object> deleteById(@PathVariable(value = "id") Long id) {
         if (!passagemService.existsById(id)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar a passagem!");
         }
