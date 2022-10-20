@@ -1,6 +1,7 @@
 package br.senai.sc.fasttravelacquisition.model.service;
 
 import br.senai.sc.fasttravelacquisition.model.entities.Localizacao;
+import br.senai.sc.fasttravelacquisition.model.entities.Viagem;
 import br.senai.sc.fasttravelacquisition.repository.LocalizacaoRepository;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,18 @@ public class LocalizacaoService {
 
     public List<Localizacao> findAll() {
         return localizacaoRepository.findAll();
+    }
+
+    public List<Localizacao> findByViagem(Viagem viagem) {
+        return localizacaoRepository.findByViagem(viagem);
+    }
+
+    public void deleteById(Long id) {
+        localizacaoRepository.deleteById(id);
+    }
+
+    public boolean existsById(Long id) {
+        return localizacaoRepository.existsById(id);
     }
 
 }
