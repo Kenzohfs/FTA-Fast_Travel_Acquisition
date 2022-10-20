@@ -32,7 +32,7 @@ public class VeiculoController {
         return ResponseEntity.status(HttpStatus.OK).body(service.save(veiculo));
     }
 
-    @GetMapping("codigo/{codigo}")
+    @GetMapping("/codigo/{codigo}")
     public ResponseEntity<Object> findById(@PathVariable(value = "codigo") String codigo){
         Optional<Veiculo> veiculoOptional = service.findById(codigo);
         if (veiculoOptional.isEmpty()) {
