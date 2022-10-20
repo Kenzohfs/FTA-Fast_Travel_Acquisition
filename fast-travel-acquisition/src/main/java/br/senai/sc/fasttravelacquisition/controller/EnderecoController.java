@@ -39,15 +39,6 @@ public class EnderecoController {
         return ResponseEntity.status(HttpStatus.FOUND).body(enderecoService.findById(id));
     }
 
-    @DeleteMapping("/{idEndereco}")
-    public ResponseEntity<Object> deleteById(Long id) {
-        if (!enderecoService.existsById(id)) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o endereço!");
-        }
-        enderecoService.deleteById(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Endereço deletado com sucesso!");
-    }
-
     @PutMapping("/{idEndereco}")
     public ResponseEntity<Object> update(@PathVariable(value = "idEndereco") Long idEndereco, @RequestBody @Valid EnderecoDTO enderecoDTO) {
         if(!enderecoService.existsById(idEndereco)) {
@@ -58,5 +49,14 @@ public class EnderecoController {
         BeanUtils.copyProperties(enderecoDTO, endereco, "id");
         endereco.setId(idEndereco);
         return ResponseEntity.status(HttpStatus.CREATED).body(enderecoService.save(endereco));
+    }
+
+    @DeleteMapping("/{idEndereco}")
+    public ResponseEntity<Object> deleteById(Long id) {
+        if (!enderecoService.existsById(id)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possível encontrar o endereço!");
+        }
+        enderecoService.deleteById(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Endereço deletado com sucesso!");
     }
 }
