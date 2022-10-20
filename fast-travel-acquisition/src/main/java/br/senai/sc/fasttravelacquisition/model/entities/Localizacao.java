@@ -29,9 +29,9 @@ public class Localizacao {
 
     @ManyToOne
     @JoinColumn(name = "viagem_id")
-    private Long viagem_id;
+    private Viagem viagem;
 
     @ManyToOne
     @JoinColumn(name = "endereco_id")
-    private Long endereco_id;
+    private Endereco endereco;
 }
